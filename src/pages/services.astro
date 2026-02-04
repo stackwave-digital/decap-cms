@@ -1,0 +1,35 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Navbar from "@/components/landing/Navbar";
+import ServicesSection from "@/components/landing/Services";
+import Process from "@/components/landing/Process";
+import Contact from "@/components/landing/Contact";
+import Footer from "@/components/landing/Footer";
+
+const title = "UI/UX Design Services | Web Developer Delaware";
+const description =
+  "Web design agency Ghana delivering custom website development Accra, responsive web design company expertise, Louisville web design agency support, and custom software development Texas.";
+---
+
+<BaseLayout title={title} description={description}>
+  <header>
+    <Navbar />
+  </header>
+  <main>
+    <section class="pt-24 pb-12">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+          Web design agency Ghana for UI/UX design services and custom website development Accra
+        </h1>
+        <h2 class="mx-auto max-w-4xl text-lg sm:text-xl text-muted-foreground">
+          Responsive web design company with Web developer Delaware, Louisville web design agency, and custom software development Texas expertise.
+        </h2>
+      </div>
+    </section>
+
+    <ServicesSection />
+    <Process />
+    <Contact client:load />
+  </main>
+  <Footer />
+</BaseLayout>

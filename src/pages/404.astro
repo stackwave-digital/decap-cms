@@ -1,0 +1,38 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import logo from "@/assets/stackwave-logo.png";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+---
+
+<BaseLayout title="404 | Stackwave Digital" description="Page not found">
+  <div class="relative flex min-h-screen items-center justify-center overflow-hidden bg-background px-6">
+    <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(79,70,229,0.18),transparent_55%)]"></div>
+    <div class="pointer-events-none absolute -left-24 top-16 h-72 w-72 rounded-full bg-primary/10 blur-3xl"></div>
+    <div class="pointer-events-none absolute -right-24 bottom-16 h-72 w-72 rounded-full bg-secondary/10 blur-3xl"></div>
+
+    <div class="relative w-full max-w-2xl rounded-2xl border border-border/60 bg-card/70 p-4 text-center shadow-xl backdrop-blur">
+      <div class="mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-2xl border border-border/60 bg-background">
+        <img
+          src={logo.src ?? logo}
+          alt="Stackwave Digital web design agency Ghana logo"
+          class="h-10 w-auto"
+        />
+      </div>
+      <p class="mb-2 text-sm font-semibold uppercase tracking-[0.2em] text-muted-foreground">Page Not Found</p>
+      <h1 class="mb-3 text-5xl font-bold text-foreground sm:text-6xl">404</h1>
+      <p class="mx-auto mb-6 max-w-md text-base text-muted-foreground sm:text-lg">
+        The page you are looking for does not exist or has been moved. Let us get you back on track.
+      </p>
+      <Button 
+            size="lg" 
+            className="bg-primary text-primary-foreground hover:bg-primary/90 font-semibold text-lg px-8 py-6 glow"
+          >
+            <a href="/" class="flex items-center justify-center gap-2">
+              Return to Home
+              <ArrowRight className="h-5 w-5" />
+            </a>
+      </Button>
+    </div>
+  </div>
+</BaseLayout>

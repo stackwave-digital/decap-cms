@@ -1,0 +1,40 @@
+---
+import "@/styles/global.css";
+import { Toaster } from "@/components/ui/sonner";
+import SEO from "@/components/SEO.astro";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  noIndex?: boolean;
+  hreflangs?: { href: string; lang: string }[];
+}
+
+const {
+  title = "Stackwave Digital",
+  description = "Stackwave Digital builds modern, conversion-focused websites and digital experiences.",
+  image,
+  noIndex = false,
+  hreflangs = [],
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <SEO
+      title={title}
+      description={description}
+      image={image}
+      noIndex={noIndex}
+      hreflangs={hreflangs}
+    />
+  </head>
+  <body>
+    <slot />
+    <Toaster client:load />
+  </body>
+</html>

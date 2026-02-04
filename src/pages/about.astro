@@ -1,0 +1,55 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Navbar from "@/components/landing/Navbar";
+import Contact from "@/components/landing/Contact";
+import Footer from "@/components/landing/Footer";
+
+const title = "Louisville Web Design Agency | About Stackwave";
+const description =
+  "Stackwave Digital is a web design agency Ghana teams trust for custom website development Accra, UI/UX design services, and responsive web design company delivery across Delaware, Louisville, and Texas.";
+---
+
+<BaseLayout title={title} description={description}>
+  <header>
+    <Navbar />
+  </header>
+  <main>
+    <section class="pt-24 pb-12">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-4xl sm:text-5xl font-bold text-foreground mb-4">
+          About Stackwave Digital, a web design agency Ghana brands trust
+        </h1>
+        <h2 class="mx-auto max-w-4xl text-lg sm:text-xl text-muted-foreground">
+          Custom website development Accra, UI/UX design services, and responsive web design company delivery for high-performance brands.
+        </h2>
+      </div>
+    </section>
+
+    <section class="pb-16">
+      <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 grid gap-8">
+        <div class="rounded-2xl border border-border/60 bg-card/70 p-8 shadow-lg backdrop-blur">
+          <h3 class="text-2xl font-semibold text-foreground mb-3">
+            Premium digital experiences for modern teams
+          </h3>
+          <p class="text-muted-foreground leading-relaxed">
+            We design and engineer custom-coded websites, Astro and React builds, and headless CMS integrations that
+            help SMEs, tech startups, and corporate brands grow. Our team combines strategy, UI/UX, and performance
+            engineering to deliver conversion-focused experiences with elite craftsmanship.
+          </p>
+        </div>
+        <div class="rounded-2xl border border-border/60 bg-card/70 p-8 shadow-lg backdrop-blur">
+          <h3 class="text-2xl font-semibold text-foreground mb-3">
+            Global coverage with local expertise
+          </h3>
+          <p class="text-muted-foreground leading-relaxed">
+            Based in Accra, Ghana, with strategic partner operations in Delaware, Louisville, and Texas, we provide
+            clear communication, reliable delivery, and premium support across time zones.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <Contact client:load />
+  </main>
+  <Footer />
+</BaseLayout>

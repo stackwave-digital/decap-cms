@@ -1,11 +1,29 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import Hero from "@/components/landing/Hero";
+import Navbar from "@/components/landing/Navbar";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import TrustedBy from "@/components/landing/TrustedBy";
+import Services from "@/components/landing/Services";
+import Process from "@/components/landing/Process";
+import Pricing from "@/components/landing/Pricing";
+import Contact from "@/components/landing/Contact";
+import Footer from "@/components/landing/Footer";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const title = "Web Design Agency Ghana | Stackwave Digital";
+const description =
+  "Custom website development Accra with UI/UX design services and a responsive web design company for SMEs, startups, and brands across Ghana, Delaware, Louisville, and Texas.";
 ---
-
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout title={title} description={description}>
+  <header>
+    <Navbar />
+  </header>
+  <main>
+    <Hero />
+    <TrustedBy />
+    <Services />
+    <Process />
+    <Pricing />
+    <Contact client:load />
+  </main>
+  <Footer />
+</BaseLayout>

@@ -1,0 +1,159 @@
+---
+interface Hreflang {
+  href: string;
+  lang: string;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  noIndex?: boolean;
+  hreflangs?: Hreflang[];
+}
+
+const {
+  title,
+  description,
+  image = "/android-chrome-512x512.png",
+  noIndex = false,
+  hreflangs = [],
+} = Astro.props;
+
+const siteUrl = Astro.site
+  ? Astro.site.toString().replace(/\/$/, "")
+  : Astro.url.origin;
+const canonical = Astro.url.toString();
+const ogImageUrl = new URL(image, siteUrl).toString();
+const logoUrl = new URL("/android-chrome-512x512.png", siteUrl).toString();
+
+const sameAs = [
+  "https://x.com/stackwavedigital",
+  "https://www.linkedin.com/company/stackwave-digital",
+  "https://www.instagram.com/stackwavedigital",
+  "https://github.com/stackwavedigital",
+];
+
+const areaServed = [
+  { "@type": "Place", name: "Accra, Ghana" },
+  { "@type": "Place", name: "Delaware, USA" },
+  { "@type": "Place", name: "Louisville, KY, USA" },
+  { "@type": "Place", name: "Texas, USA" },
+];
+
+const locations = [
+  {
+    "@type": "Place",
+    name: "Accra, Ghana",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Accra",
+      addressCountry: "GH",
+    },
+  },
+  {
+    "@type": "Place",
+    name: "Delaware, USA",
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: "DE",
+      addressCountry: "US",
+    },
+  },
+  {
+    "@type": "Place",
+    name: "Louisville, KY, USA",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Louisville",
+      addressRegion: "KY",
+      addressCountry: "US",
+    },
+  },
+  {
+    "@type": "Place",
+    name: "Texas, USA",
+    address: {
+      "@type": "PostalAddress",
+      addressRegion: "TX",
+      addressCountry: "US",
+    },
+  },
+];
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Stackwave Digital",
+    url: siteUrl,
+    logo: logoUrl,
+    image: ogImageUrl,
+    sameAs,
+    areaServed,
+    knowsAbout: [
+      "Custom Web Development",
+      "UI/UX Design",
+      "Headless CMS Integration",
+      "Cloud Deployment",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    name: "Stackwave Digital",
+    url: siteUrl,
+    image: ogImageUrl,
+    logo: logoUrl,
+    priceRange: "$$$",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Accra",
+      addressCountry: "GH",
+    },
+    areaServed,
+    location: locations,
+    serviceType: [
+      "Custom Web Development",
+      "UI/UX Design Services",
+      "Headless CMS Integration",
+      "Cloud Deployment",
+    ],
+    sameAs,
+  },
+];
+---
+
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="theme-color" content="#0f172a" />
+<meta name="robots" content={noIndex ? "noindex,nofollow" : "index,follow"} />
+<link rel="canonical" href={canonical} />
+<link rel="manifest" href="/site.webmanifest" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+{hreflangs.length > 0 && (
+  <>
+    {hreflangs.map((item) => (
+      <link rel="alternate" hreflang={item.lang} href={item.href} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={canonical} />
+  </>
+)}
+
+<meta property="og:site_name" content="Stackwave Digital" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImageUrl} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImageUrl} />
+
+<script type="application/ld+json">
+  {JSON.stringify(schema)}
+</script>
