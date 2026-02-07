@@ -5,7 +5,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 const packages = [
   {
     name: "Starter Site",
-    price: "GHS 3,500",
+    price: "$ 350",
     description: "Perfect for small businesses and startups",
     popular: false,
     features: [
@@ -19,7 +19,7 @@ const packages = [
   },
   {
     name: "Professional Business",
-    price: "GHS 6,000",
+    price: "$ 600",
     description: "For growing businesses that need more",
     popular: true,
     features: [
@@ -35,7 +35,7 @@ const packages = [
   },
   {
     name: "Enterprise Solution",
-    price: "GHS 12,000",
+    price: "$ 1,000",
     description: "Full-scale digital presence for large brands",
     popular: false,
     features: [
