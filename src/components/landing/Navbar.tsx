@@ -9,7 +9,7 @@ const Navbar = () => {
           <a href="/" className="flex items-center gap-3">
             <img
               src={logo.src ?? logo}
-              alt="Stackwave Digital web design agency Ghana logo"
+              alt="Stackwave Digital web design agency US logo"
               className="h-10 w-auto"
             />
             <span className="hidden sm:inline text-xl font-bold text-foreground font-higuen">Stackwave</span>

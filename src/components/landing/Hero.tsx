@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/50 mb-8">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-sm text-muted-foreground">Digital Agency Based in Accra, Ghana</span>
+          <span className="text-sm text-muted-foreground">Digital Agency Based in Dallas Fort Worth, US</span>
         </div>
 
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">

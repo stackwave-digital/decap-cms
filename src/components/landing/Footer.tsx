@@ -23,7 +23,7 @@ const Footer = () => {
           <div className="flex items-center gap-3">
             <img
               src={logo.src ?? logo}
-              alt="Stackwave Digital web design agency Ghana logo"
+              alt="Stackwave Digital web design agency US logo"
               className="h-8 w-auto"
             />
             <span className="text-lg font-bold text-foreground font-higuen">Stackwave Digital</span>
@@ -57,7 +57,7 @@ const Footer = () => {
 
         <div className="mt-10 pt-8 border-t border-border/50 text-center">
           <p className="text-sm text-muted-foreground">
-            © 2026 Stackwave Digital. Accra, Ghana.
+            © 2026 Stackwave Digital. Dallas Fort Worth, US.
           </p>
         </div>
       </div>
