@@ -15,8 +15,21 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast("We'll get back to you within 24 hours.");
-    setFormData({ name: "", email: "", description: "" });
+    const form = e.target as HTMLFormElement;
+    const formData = new FormData(form);
+    
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData as any).toString(),
+    })
+      .then(() => {
+        toast("We'll get back to you within 24 hours.");
+        setFormData({ name: "", email: "", description: "" });
+      })
+      .catch((error) => {
+        toast.error("Oops! Something went wrong.");
+      });
   };
 
   return (
@@ -49,11 +62,19 @@ const Contact = () => {
           </div>
 
           <div className="bg-card border border-border rounded-2xl p-4 md:p-8">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6" name="contact" data-netlify="true" netlify-honeypot="bot-field">
+              <input type="hidden" name="form-name" value="contact" />
+              <p className="hidden">
+                <label>
+                  Don’t fill this out if you're human: <input name="bot-field" />
+                </label>
+              </p>
+
               <div className="space-y-2">
                 <Label htmlFor="name" className="text-foreground">Full Name</Label>
                 <Input
                   id="name"
+                  name="name"
                   placeholder="John Doe"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
@@ -66,6 +87,7 @@ const Contact = () => {
                 <Label htmlFor="email" className="text-foreground">Email Address</Label>
                 <Input
                   id="email"
+                  name="email"
                   type="email"
                   placeholder="john@company.com"
                   value={formData.email}
@@ -79,6 +101,7 @@ const Contact = () => {
                 <Label htmlFor="description" className="text-foreground">Project Description</Label>
                 <Textarea
                   id="description"
+                  name="description"
                   placeholder="Tell us about your project, goals, and timeline..."
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}

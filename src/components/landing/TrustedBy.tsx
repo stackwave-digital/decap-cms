@@ -32,14 +32,6 @@ const TrustedBy = () => {
       tabletWidth: 150,
       desktopWidth: 180
     },
-    // {
-    //   name: "HealthPlus",
-    //   logo: "/images/logos/healthplus_logo.png",
-    //   url: "#",
-    //   mobileWidth: 100,
-    //   tabletWidth: 150,
-    //   desktopWidth: 180
-    // },
     {
       name: "EduSmart",
       logo: "/images/logos/edusmart_logo.png",
@@ -51,7 +43,7 @@ const TrustedBy = () => {
   ];
 
   return (
-    <section className="py-16 border-y border-border/50">
+    <section id="trusted-by" className="py-16 border-y border-border/50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <p className="text-center text-sm text-muted-foreground mb-8 uppercase tracking-wider">
           Trusted by innovative brands

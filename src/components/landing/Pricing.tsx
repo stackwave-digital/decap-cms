@@ -5,67 +5,83 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 const packages = [
   {
     name: "Starter Site",
-    price: "$ 350",
-    description: "Perfect for small businesses and startups",
+    price: "$ 499",
+    description: "High-performance custom build for emerging startups.",
     popular: false,
     features: [
       "Custom responsive design",
       "Up to 5 pages",
       "Basic SEO setup",
-      "Contact form",
-      "Social media links",
-      "SSL certificate",
+      "Contact & lead forms",
+      "Social media integration",
+      "SSL & Cloudflare setup",
+    ],
+  },
+  {
+    name: "Website Revamp",
+    price: "$ 799",
+    description: "Modernize your outdated digital presence with fresh designs and upgraded tech.",
+    popular: false,
+    features: [
+      "Full Codebase Refactoring",
+      "Design Overhauls",
+      "Speed Optimization",
+      "SEO Improvements",
+      "Performance optimization score 90+",
+      "1 month post-launch support",
     ],
   },
   {
     name: "Professional Business",
-    price: "$ 600",
-    description: "For growing businesses that need more",
+    price: "$ 999",
+    description: "The sweet spot for growing companies needing a serious presence.",
     popular: true,
     features: [
-      "Custom responsive design",
-      "Up to 10 pages",
-      "Advanced SEO optimization",
-      "Contact form integration",
-      "Social media links",
-      "SSL certificate",
-      "1 month free support",
-      "Performance optimization",
+      "Tailored UI/UX design",
+      "Up to 10 custom pages",
+      "Advanced technical SEO",
+      "CRM & API integrations",
+      "Speed optimization score 90+",
+      "1 month post-launch support",
+      "Custom animations & interactions",
+      "Analytics & tracking setup",
     ],
   },
   {
     name: "Enterprise Solution",
-    price: "$ 1,000",
-    description: "Full-scale digital presence for large brands",
+    price: "$ 1,999",
+    description: "Full-scale digital platform architecture for top-tier brands.",
     popular: false,
     features: [
-      "Custom responsive design",
-      "Unlimited pages",
-      "Full SEO strategy",
-      "CMS integration",
-      "E-commerce ready",
-      "SSL certificate",
-      "3 months free support",
+      "Premium tailored design system",
+      "Unlimited pages architecture",
+      "Headless CMS integration",
+      "E-commerce capabilities",
       "Priority performance optimization",
-      "Analytics dashboard",
+      "3 months post-launch support",
+      "Complex custom animations",
+      "Dedicated account manager",
+      "Advanced security protocols",
     ],
   },
 ];
 
 const Pricing = () => {
   return (
-    <section id="pricing" className="py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="pricing" className="py-24 relative overflow-hidden">
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[100px] pointer-events-none" />
+
+      <div className="relative z-10 mx-auto max-w-[90rem] px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-            Simple, Transparent <span className="text-gradient">Pricing</span>
+            Transparent <span className="text-gradient">Investment</span>
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Choose the package that fits your business needs
+            Strategic pricing designed for ambitious startups and enterprise brands.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mx-auto">
           {packages.map((pkg, index) => (
             <Card 
               key={index} 
@@ -93,11 +109,11 @@ const Pricing = () => {
               <CardContent className="space-y-6">
                 <ul className="space-y-3">
                   {pkg.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center gap-3">
-                      <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center shrink-0">
+                    <li key={featureIndex} className="flex items-start gap-3">
+                      <div className="w-5 h-5 rounded-full bg-primary/20 flex items-center justify-center shrink-0 mt-0.5">
                         <Check className="h-3 w-3 text-primary" />
                       </div>
-                      <span className="text-muted-foreground text-sm">{feature}</span>
+                      <span className="text-muted-foreground text-sm leading-tight">{feature}</span>
                     </li>
                   ))}
                 </ul>
@@ -118,8 +134,8 @@ const Pricing = () => {
           ))}
         </div>
 
-        <p className="text-center text-sm text-muted-foreground mt-8">
-          Custom quotes available for larger projects
+        <p className="text-center text-sm text-muted-foreground/60 mt-12 font-medium tracking-wide">
+          Need a custom enterprise architecture? Let's talk.
         </p>
       </div>
     </section>
