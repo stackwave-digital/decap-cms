@@ -5,16 +5,15 @@ const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
       {/* Background gradient effects */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 -left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-3xl" />
-        <div className="absolute bottom-1/4 -right-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-1/4 -left-1/4 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[120px]" />
+        <div className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/50 mb-8">
-          <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-          <span className="text-sm text-muted-foreground">Digital Agency Based in Dallas Fort Worth, US</span>
-        </div>
+        <p className="text-primary font-semibold tracking-wider uppercase mb-6 text-sm">
+          Digital Agency Based in Dallas Fort Worth, US
+        </p>
 
         <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
           <span className="text-gradient">Innovate.</span>{" "}
@@ -40,8 +39,9 @@ const Hero = () => {
             size="lg" 
             variant="outline" 
             className="border-border text-foreground hover:bg-secondary hover:text-foreground font-semibold text-lg px-8 py-6"
+            onClick={() => document.getElementById('trusted-by')?.scrollIntoView({ behavior: 'smooth' })}
           >
-            View Our Work
+            Trusted Partners
           </Button>
         </div>
 
